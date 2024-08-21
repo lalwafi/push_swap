@@ -1,0 +1,9 @@
+./pushswap "3 2 5 6" 9 10 20 "     " " 6    9 7"
+handle int max, letters, float numbers nuh uh, no duplicates
+turn them to int in an array
+make a list and add them to it
+make b list 
+FOR ERRORS IT SHOULD BE "Error\n" ONLY!!! 
+
+Q
+why index in stacks???
