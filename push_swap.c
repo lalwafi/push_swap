@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/24 06:58:46 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/24 15:47:32 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ void	free_double_array(char **array)
 {
 	int i;
 
-	i = 0;
+	i = -1;
 	if (array)
 	{
-		while (array[i])
-			free(array[i++]);
+		while (array[++i])
+			free(array[i]);
 		free(array);
 	}
 }
@@ -143,23 +143,74 @@ int	count_how_many(char **av)
 		j = 0;
 	}
 	return (count);
+}
+
+int	any_letters(char *str)
+{
+	int	flag;
+	int	i;
+
+	i = -1;
+	flag = 0;
+	while (str[++i])
+	{
+		if (ft_isdigit(str[i]) == 0 && str[i] != ' ')
+			flag = 1;
+	}
+	if (flag == 1)
+		return (1);
+	return (0);
+}
+
+char	**array_time(char **numbers, char **av, int a)
+{
+	char **split = NULL;
+	int		n;
+	int		s;
 	
+	n = 0;
+	s = 0;
+	numbers = (char **)malloc(sizeof(char **) * (a + 1));
+	if (!numbers)
+		(ft_printf("malloc fail\n"), exit(EXIT_FAILURE));
+	a = 0;
+	while (av[++a])
+	{
+		split = ft_split(av[a], ' ');
+		if (split == NULL)
+			numbers[n++] = av[a];
+		else
+		{
+			while (split[s])
+				numbers[n++] = ft_strdup(split[s++]);
+			free_double_array(split);
+		}
+		s = 0;
+	}
+	numbers[n] = NULL;
+	return (numbers);
 }
 
 void	parsing_again(char **av)
 {
-	// int	flag;
-	// char **numbers;
+	char **numbers = NULL;
 	int	i;
 	int	wc;
 	wc = count_how_many(av);
-	ft_printf("%d\n", wc);
+	ft_printf("wc = %d\n", wc);
 	i = 0;
 	while (av[++i])
 	{
 		if (check_for_spaces(av[i]) == 1)
-			ft_printf("found spaces\n");
+			(ft_printf("found spaces only :(\n"), exit(EXIT_FAILURE));
+		if (any_letters(av[i]) == 1)
+			(ft_printf("only numbers pls\n"), exit(EXIT_FAILURE));
 	}
+	numbers = array_time(numbers, av, wc);
+	i = 0;
+	while (numbers[i])
+		ft_printf("%s\n", numbers[i++]);
+		
 }
 int	main(int ac, char **av)
 {
