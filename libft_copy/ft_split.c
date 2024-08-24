@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:00 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/02/20 16:08:03 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/24 01:58:59 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ char	**ft_split(char const *s, char c)
 	int		count;
 
 	count = make_words(s, c);
+	if (count == 0)
+		return (NULL);
 	result = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!result)
 		return (NULL);

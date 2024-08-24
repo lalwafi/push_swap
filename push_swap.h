@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/19 18:02:50 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/24 00:44:20 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,15 @@
 
 typedef struct s_ps_list
 {
-	int			content;
+	int				content;
+	int				num;
 	struct s_list	*next;
-}					t_ps_list;
+}	t_ps_list;
+
+// typedef struct s_parsing
+// {
+// 	int				count;
+// };	t_parsing;
+
 
 #endif
