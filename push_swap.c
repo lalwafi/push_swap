@@ -6,88 +6,11 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/25 14:53:43 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/25 19:08:26 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	check_arguments_thing(int ac, char **av)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	count;
-// 	int	flag;
-
-// 	flag = 0;
-// 	count = 0;
-// 	i = 0;
-// 	j = 0;
-// 	while (av[++i])
-// 	{
-// 		while (av[i][j] && flag == 0)
-// 		{
-// 			if (av[i][j] == ' ')
-// 			{
-// 				// ft_printf("found space\n");
-// 				count++;
-// 				flag = 1;
-// 			}
-// 			j++;
-// 		}
-// 		// if (flag == 0)
-// 		// 	count++;
-// 		flag = 0;
-// 		j = 0;
-// 	}
-// 	ft_printf("count = %d\nac = %d\n", count, (ac - 1));
-// 	// count if needs to be split, then count how many there would be
-// 	// and then do the split and allocate to a double pointer with only the numbers 
-// }
-
-// void	parsing_time(char **av)
-// {
-// 	char	**numbers;
-// 	int		i;
-// 	int		j;
-// 	int		k;
-// 	int		wordcount;
-	
-// 	i = 0;
-// 	j = 0;
-// 	k = 0;
-// 	wordcount = 0;
-// 	while (av[++i])
-// 	{
-// 		numbers = ft_split(av[i], ' ');
-// 		if (numbers[k])
-// 		{
-// 			while (numbers[k])
-// 			{
-// 				while (numbers[k][j])
-// 				{
-// 					if (ft_isdigit(numbers[k][j]) == 0)
-// 					{
-// 						wordcount = -5;
-// 						break ;
-// 					}
-// 					j++;
-// 				}
-// 				k++;
-// 			}
-// 		}
-// 		else
-// 			wordcount++;
-// 		j = -1;
-// 		k = 0;
-// 		while (numbers[++j])
-// 			free(numbers[j]);
-// 		free(numbers);
-// 		j = 0;
-// 	}
-// 	if (wordcount == -5)
-// 		(ft_printf("nuh uh\n"), exit (EXIT_FAILURE));
-// }
 
 void	free_double_array(char **array)
 {
@@ -102,11 +25,13 @@ void	free_double_array(char **array)
 	}
 }
 
-int	check_for_spaces(char *str)
+int	check_for_spaces_empty(char *str)
 {
 	int	flag;
 	int	i;
 
+	if (!str[0])
+		return (2);
 	i = -1;
 	flag = 0;
 	while (str[++i])
@@ -131,21 +56,21 @@ int	count_how_many(char **av)
 	i = 0;
 	while (av[++i])
 	{
-		ft_printf("splitting...\n");
+		// ft_printf("splitting...\n");
 		idk = ft_split(av[i], ' ');
-		ft_printf("split\n");
+		// ft_printf("split\n");
 		if (idk == NULL)
 			count++;
 		else
 		{
-			ft_printf("else time\n");
+			// ft_printf("else time\n");
 			while (idk[j++])
 				count++;
-			ft_printf("freeing idk\n");
+			// ft_printf("freeing idk\n");
 			free_double_array(idk);
-			ft_printf("idk freed\n");
+			// ft_printf("idk freed\n");
 		}
-		ft_printf("setting j = 0\n");
+		// ft_printf("setting j = 0\n");
 		j = 0;
 	}
 	return (count);
@@ -184,7 +109,7 @@ char	**array_time(char **numbers, char **av, int a)
 	{
 		split = ft_split(av[a], ' ');
 		if (split == NULL)
-			numbers[n++] = ft_strdup(av[a]);
+			ft_printf("---------null------\n");
 		else
 		{
 			while (split[s])
@@ -199,12 +124,41 @@ char	**array_time(char **numbers, char **av, int a)
 
 // void	duplicates_maybe(char **numbers)
 // {
-	
+// 	int	i;
+// 	int	j;
+
+// 	i = 0;
+// 	j = 0;
+// 	while (numbers[++i])
+// 	{
+// 		if (numb)
+// 	}
 // }
+
+int	*char_to_int_array(char **numbers, int count)
+{
+	int	*result;
+	int	i;
+	// int	j;
+	
+	i = -1;
+	// j = 0;
+	
+	result = (int *)malloc(sizeof(int) * (count + 1));
+	if (!result)
+	{
+		ft_printf("int malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	while (numbers[++i])
+		result[i] = ft_atoi(numbers[i]);
+	return (result);
+}
 
 void	parsing_again(char **av)
 {
 	char **numbers = NULL;
+	int		*numarray;
 	int	i;
 	int	wc;
 	wc = count_how_many(av);
@@ -212,8 +166,10 @@ void	parsing_again(char **av)
 	i = 0;
 	while (av[++i])
 	{
-		if (check_for_spaces(av[i]) == 1)
+		if (check_for_spaces_empty(av[i]) == 1)
 			(ft_printf("found spaces only :(\n"), exit(EXIT_FAILURE));
+		if (check_for_spaces_empty(av[i]) == 2)
+			(ft_printf("empty string found\n"), exit(EXIT_FAILURE));
 		if (any_letters(av[i]) == 1)
 			(ft_printf("only numbers pls\n"), exit(EXIT_FAILURE));
 	}
@@ -221,8 +177,13 @@ void	parsing_again(char **av)
 	i = 0;
 	while (numbers[i])
 		ft_printf("%s\n", numbers[i++]);
+	numarray = char_to_int_array(numbers, wc);
+	i = wc;
+	while (i > 0)
+		ft_printf("%d\n", numarray[--i]);
 	// duplicates_maybe(numbers);
-	// free_double_array(numbers);
+	free_double_array(numbers);
+	free(numarray);
 }
 int	main(int ac, char **av)
 {

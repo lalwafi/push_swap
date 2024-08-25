@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 17:21:00 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/24 01:58:59 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/25 17:13:00 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ static	int	make_words(char const *s, char c)
 	count = 0;
 	i = 1;
 	if (!*s)
+		return (0);
+	if (s[1] == '\0' && s[0] != c)
+		return (1);
+	else if (s[1] == '\0' && s[0] == c)
 		return (0);
 	while (s[i] != '\0')
 	{
