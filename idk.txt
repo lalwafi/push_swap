@@ -1,4 +1,4 @@
-./pushswap "3 2 5 6" 9 10 20 "     " " 6    9 7"
+./pushswap "3 2 5 6" 9 10 20 "     " " 6    9 7" 73488 "   323 5432a754 32" 2147483648
 handle int max, letters, float numbers nuh uh, no duplicates
 turn them to int in an array
 make a list and add them to it
@@ -7,3 +7,9 @@ FOR ERRORS IT SHOULD BE "Error\n" ONLY!!!
 
 Q
 why index in stacks???
+
+
+this input i fucked up gave something weird
+./push_swap ./pushswap "3 2 5 6" 9 10 20 "     " " 6    9 7" 73488 "   323 5432754 32" 2147483648
+wc = 17
+only numbers pls

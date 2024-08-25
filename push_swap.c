@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/24 15:47:32 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/25 14:53:43 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ void	free_double_array(char **array)
 {
 	int i;
 
-	i = -1;
-	if (array)
+	i = 0;
+	if (array != NULL)
 	{
-		while (array[++i])
-			free(array[i]);
+		while (array[i])
+			free(array[i++]);
 		free(array);
 	}
 }
@@ -131,15 +131,21 @@ int	count_how_many(char **av)
 	i = 0;
 	while (av[++i])
 	{
+		ft_printf("splitting...\n");
 		idk = ft_split(av[i], ' ');
+		ft_printf("split\n");
 		if (idk == NULL)
 			count++;
 		else
 		{
-			while (idk[j++] != NULL)
+			ft_printf("else time\n");
+			while (idk[j++])
 				count++;
+			ft_printf("freeing idk\n");
 			free_double_array(idk);
+			ft_printf("idk freed\n");
 		}
+		ft_printf("setting j = 0\n");
 		j = 0;
 	}
 	return (count);
@@ -170,7 +176,7 @@ char	**array_time(char **numbers, char **av, int a)
 	
 	n = 0;
 	s = 0;
-	numbers = (char **)malloc(sizeof(char **) * (a + 1));
+	numbers = (char **)malloc(sizeof(char *) * (a + 1));
 	if (!numbers)
 		(ft_printf("malloc fail\n"), exit(EXIT_FAILURE));
 	a = 0;
@@ -178,7 +184,7 @@ char	**array_time(char **numbers, char **av, int a)
 	{
 		split = ft_split(av[a], ' ');
 		if (split == NULL)
-			numbers[n++] = av[a];
+			numbers[n++] = ft_strdup(av[a]);
 		else
 		{
 			while (split[s])
@@ -190,6 +196,11 @@ char	**array_time(char **numbers, char **av, int a)
 	numbers[n] = NULL;
 	return (numbers);
 }
+
+// void	duplicates_maybe(char **numbers)
+// {
+	
+// }
 
 void	parsing_again(char **av)
 {
@@ -210,7 +221,8 @@ void	parsing_again(char **av)
 	i = 0;
 	while (numbers[i])
 		ft_printf("%s\n", numbers[i++]);
-		
+	// duplicates_maybe(numbers);
+	// free_double_array(numbers);
 }
 int	main(int ac, char **av)
 {
