@@ -14,4 +14,6 @@ this input i fucked up gave something weird
 wc = 17
 only numbers pls
 
-split doesnt hanlde if its 1 character only
+fixed (split doesnt hanlde if its 1 character only)
+
+make sure to only use "Error\n"

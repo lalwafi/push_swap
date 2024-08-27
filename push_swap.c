@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/25 19:08:26 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/27 04:35:02 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,18 +78,18 @@ int	count_how_many(char **av)
 
 int	any_letters(char *str)
 {
-	int	flag;
+	// int	flag;
 	int	i;
 
 	i = -1;
-	flag = 0;
+	// flag = 0;
 	while (str[++i])
 	{
-		if (ft_isdigit(str[i]) == 0 && str[i] != ' ')
-			flag = 1;
+		if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]) == 0 && str[i + 1] != ' ')
+			return (2);
+		else if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '+' && str[i] != '-')
+			return (1);
 	}
-	if (flag == 1)
-		return (1);
 	return (0);
 }
 
@@ -122,18 +122,23 @@ char	**array_time(char **numbers, char **av, int a)
 	return (numbers);
 }
 
-// void	duplicates_maybe(char **numbers)
-// {
-// 	int	i;
-// 	int	j;
+void	duplicates_maybe(int *numbers, int count)
+{
+	int	i;
+	int	j;
 
-// 	i = 0;
-// 	j = 0;
-// 	while (numbers[++i])
-// 	{
-// 		if (numb)
-// 	}
-// }
+	i = -1;
+	j = -1;
+	while (++i < count)
+	{
+		while (++j < count)
+		{
+			if (numbers[i] == numbers[j] && i != j)
+				ft_printf("found duplicate\n");
+		}
+		j = -1;
+	}
+}
 
 int	*char_to_int_array(char **numbers, int count)
 {
@@ -170,6 +175,8 @@ void	parsing_again(char **av)
 			(ft_printf("found spaces only :(\n"), exit(EXIT_FAILURE));
 		if (check_for_spaces_empty(av[i]) == 2)
 			(ft_printf("empty string found\n"), exit(EXIT_FAILURE));
+		if (any_letters(av[i]) == 2)
+			(ft_printf("sign without number? or non-number after sign\n"), exit(EXIT_FAILURE));
 		if (any_letters(av[i]) == 1)
 			(ft_printf("only numbers pls\n"), exit(EXIT_FAILURE));
 	}
@@ -181,7 +188,7 @@ void	parsing_again(char **av)
 	i = wc;
 	while (i > 0)
 		ft_printf("%d\n", numarray[--i]);
-	// duplicates_maybe(numbers);
+	duplicates_maybe(numarray, wc);
 	free_double_array(numbers);
 	free(numarray);
 }
