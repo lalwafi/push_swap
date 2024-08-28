@@ -6,11 +6,11 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:28:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/28 07:43:30 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/28 16:25:36 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	handle_overflow(const char *str, int sign)
 {
