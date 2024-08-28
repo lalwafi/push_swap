@@ -2,7 +2,7 @@ NAME    = push_swap
 CC      = cc
 CFLAGS  = -Wall -Werror -Wextra -fsanitize=address -g3
 
-SRCS    = push_swap.c
+SRCS    = push_swap.c ft_atoi_ps.c
 
 OBJ     = $(SRCS:.c=.o)
 

@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_ps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 20:33:14 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/28 07:29:46 by lalwafi          ###   ########.fr       */
+/*   Created: 2024/08/28 07:28:37 by lalwafi           #+#    #+#             */
+/*   Updated: 2024/08/28 07:43:30 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(const char *str)
+int	handle_overflow(const char *str, int sign)
+{
+	long	n;
+    long    temp;
+	n = 0;
+	while ((*str >= '0') && (*str <= '9'))
+    {
+        temp = n;
+        n = n * 10 + (*str - '0');
+        if (temp > n)
+            (write(1, "overflow\n", 9), exit(EXIT_FAILURE));
+        str++;
+    }
+	if (n < INT_MIN || n > INT_MAX)
+		(write(1, "overflow\n", 9), exit(EXIT_FAILURE));
+	return (sign * n);
+}
+
+int	ft_atoi_ps(const char *str)
 {
 	int	sign;
-	int	n;
 
-	n = 0;
 	sign = 1;
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
@@ -28,13 +44,5 @@ int	ft_atoi(const char *str)
 	}
 	else if (*str == '+')
 		str++;
-	if ((*str >= '0') && (*str <= '9'))
-	{
-		while ((*str >= '0') && (*str <= '9'))
-		{
-			n = n * 10 + (*str - '0');
-			str++;
-		}
-	}
-	return (sign * n);
+	return (handle_overflow(str, sign));
 }

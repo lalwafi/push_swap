@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/27 04:35:02 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/28 07:47:24 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ char	**array_time(char **numbers, char **av, int a)
 	return (numbers);
 }
 
-void	duplicates_maybe(int *numbers, int count)
+int	duplicates_maybe(int *numbers, int count)
 {
 	int	i;
 	int	j;
@@ -134,21 +134,19 @@ void	duplicates_maybe(int *numbers, int count)
 		while (++j < count)
 		{
 			if (numbers[i] == numbers[j] && i != j)
-				ft_printf("found duplicate\n");
+				return (1);
 		}
 		j = -1;
 	}
+	return (0);
 }
 
 int	*char_to_int_array(char **numbers, int count)
 {
 	int	*result;
 	int	i;
-	// int	j;
 	
-	i = -1;
-	// j = 0;
-	
+	i = -1;	
 	result = (int *)malloc(sizeof(int) * (count + 1));
 	if (!result)
 	{
@@ -156,7 +154,7 @@ int	*char_to_int_array(char **numbers, int count)
 		exit(EXIT_FAILURE);
 	}
 	while (numbers[++i])
-		result[i] = ft_atoi(numbers[i]);
+		result[i] = ft_atoi_ps(numbers[i]);
 	return (result);
 }
 
@@ -188,7 +186,8 @@ void	parsing_again(char **av)
 	i = wc;
 	while (i > 0)
 		ft_printf("%d\n", numarray[--i]);
-	duplicates_maybe(numarray, wc);
+	if (duplicates_maybe(numarray, wc) == 1)
+		ft_printf("found duplicate\n");
 	free_double_array(numbers);
 	free(numarray);
 }

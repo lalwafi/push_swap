@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/27 04:33:45 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/28 07:41:40 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int		check_for_spaces_empty(char *str);
 int		count_how_many(char **av);
 int		any_letters(char *str);
 char	**array_time(char **numbers, char **av, int a);
-void	duplicates_maybe(int *numbers, int count);
+int		duplicates_maybe(int *numbers, int count);
 int		*char_to_int_array(char **numbers, int count);
 void	parsing_again(char **av);
+int		handle_overflow(const char *str, int sign);
+int		ft_atoi_ps(const char *str);
 
 #endif
