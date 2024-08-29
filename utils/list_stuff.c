@@ -6,13 +6,13 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:11:21 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/28 18:14:51 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/29 22:40:11 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_ps_list	*ps_lstnew(int content)
+t_ps_list	*ps_lstnew(int content, int index)
 {
 	t_ps_list	*a;
 
@@ -20,6 +20,7 @@ t_ps_list	*ps_lstnew(int content)
 	if (!a)
 		return (NULL);
 	a -> content = content;
+	a -> index = index;
 	a -> next = NULL;
 	return (a);
 }
@@ -28,6 +29,7 @@ void	ps_lstadd_back(t_ps_list **lst, t_ps_list *new)
 {
 	t_ps_list	*last;
 
+	ft_printf("before lstlast??\n");
 	last = ps_lstlast(*lst);
 	if (*lst)
 		last -> next = new;
@@ -54,6 +56,7 @@ t_ps_list	*ps_lstlast(t_ps_list *lst)
 
 	if (!lst)
 		return (NULL);
+	ft_printf("before lstsize??\n");
 	i = ps_lstsize(lst);
 	while (i > 1)
 	{
@@ -76,6 +79,16 @@ int	ps_lstsize(t_ps_list *lst)
 	{
 		current = current -> next;
 		count++;
+		ft_printf("inside lstsize count = %d\n", count);
 	}
 	return (count);
+}
+
+void	ps_lstprint(t_ps_list *lst)
+{
+	while (lst)
+	{
+		ft_printf("%d\n", lst -> content);
+		lst = lst -> next;
+	}
 }
