@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/30 03:41:48 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/30 06:16:43 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ int	main(int ac, char **av)
 		return (0);
 	numarray = parsing_again(av);
 	stack_a = make_stack(stack_a, numarray, count_how_many(av));
-	ps_lstprint(stack_a);
 	if (is_it_sorted(stack_a) == 1)
 	{
+		ft_printf("not sorted\n");
 		// sort_that_stack(&stack_a, &stack_b);
 		// if (is_it_sorted(stack_a) == 1)
-		ft_printf("not sorted\n");
 		// swap_a(&stack_a);
-		push_b(&stack_a, &stack_b);
+		// push_b(&stack_a, &stack_b);
+		rotate_a(&stack_a);
 		ft_printf("-------stack_a-------\n");
 		ps_lstprint(stack_a);
 		ft_printf("-------stack_b-------\n");

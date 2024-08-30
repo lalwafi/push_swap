@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/30 03:22:07 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/30 04:13:38 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void		ps_lstadd_front(t_ps_list **lst, t_ps_list *new);
 void    swap_a(t_ps_list   **stack_a);
 void    push_a(t_ps_list **stack_a, t_ps_list **stack_b);
 void    push_b(t_ps_list **stack_a, t_ps_list **stack_b);
+void    rotate_a(t_ps_list **stack_a);
 
 
 #endif

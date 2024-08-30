@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 00:21:29 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/30 04:00:08 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/30 07:13:45 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,28 @@ void    push_b(t_ps_list **stack_a, t_ps_list **stack_b)
 
 void    rotate_a(t_ps_list **stack_a)
 {
-	t_ps_list	temp;
-	t_ps_list
+	t_ps_list	*temp;
+	t_ps_list	*first;
+
+	first = (*stack_a);
+	(*stack_a) = (*stack_a)->next;
+	temp = (*stack_a);
+	while (temp->next)
+		temp = temp->next;
+	temp->next = first;
+	first->next = NULL;
+}
+
+void    rotate_b(t_ps_list **stack_b)
+{
+	t_ps_list	*temp;
+	t_ps_list	*first;
+
+	first = (*stack_b);
+	(*stack_b) = (*stack_b)->next;
+	temp = (*stack_b);
+	while (temp->next)
+		temp = temp->next;
+	temp->next = first;
+	first->next = NULL;
 }
