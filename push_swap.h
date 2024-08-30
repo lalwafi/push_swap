@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/29 22:40:08 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/30 03:22:07 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ int			duplicates_maybe(int *numbers, int count);
 int			*char_to_int_array(char **numbers, int count);
 int			*parsing_again(char **av);
 
+t_ps_list	*make_stack(t_ps_list *stack_a, int *numarray, int wc);
+int			is_it_sorted(t_ps_list *stack_a);
+
 // utils
 
 int			handle_overflow(const char *str, int sign);
@@ -50,12 +53,20 @@ int			ft_atoi_ps(const char *str);
 
 // list stuff
 
-t_ps_list	*ps_lstnew(int content, int index);
+t_ps_list	*ps_lstnew(int content);
 void		ps_lstadd_back(t_ps_list **lst, t_ps_list *new);
 void		ps_lstclear(t_ps_list **lst);
 void		ps_lstdelone(t_ps_list *lst, void (*del)(void *));
 t_ps_list	*ps_lstlast(t_ps_list *lst);
 int			ps_lstsize(t_ps_list *lst);
 void		ps_lstprint(t_ps_list *lst);
+void		ps_lstadd_front(t_ps_list **lst, t_ps_list *new);
+
+// push_swap utils
+
+void    swap_a(t_ps_list   **stack_a);
+void    push_a(t_ps_list **stack_a, t_ps_list **stack_b);
+void    push_b(t_ps_list **stack_a, t_ps_list **stack_b);
+
 
 #endif

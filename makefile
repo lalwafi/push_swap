@@ -3,7 +3,7 @@ CC      = cc
 CFLAGS  = -Wall -Werror -Wextra -fsanitize=address -g3
 
 SRCS    = push_swap.c parsing1.c parsing2.c utils/ft_atoi_ps.c \
-			utils/list_stuff.c
+			utils/list_stuff.c sorting.c
 
 OBJ     = $(SRCS:.c=.o)
 
