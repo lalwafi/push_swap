@@ -1,5 +1,16 @@
 {
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "array": "c",
+        "*.tcc": "c",
+        "concepts": "c",
+        "string": "c",
+        "unordered_map": "c",
+        "memory": "c",
+        "string_view": "c",
+        "ostream": "c",
+        "streambuf": "c",
+        "functional": "c",
+        "tuple": "c"
     }
 }

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   sorting_utils_1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 00:21:29 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/30 07:13:45 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 00:40:18 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_it_sorted(t_ps_list *stack_a)
 {
@@ -38,6 +38,7 @@ void    swap_a(t_ps_list **stack_a)
 		(*stack_a)->content = (*stack_a)->next->content;
 		(*stack_a)->next->content = temp; 
 	}
+	ft_printf("sa\n");
 }
 
 void    swap_b(t_ps_list **stack_b)
@@ -50,6 +51,7 @@ void    swap_b(t_ps_list **stack_b)
 		(*stack_b)->content = (*stack_b)->next->content;
 		(*stack_b)->next->content = temp; 
 	}
+	ft_printf("sb\n");
 }
 
 void    push_a(t_ps_list **stack_a, t_ps_list **stack_b)
@@ -63,6 +65,7 @@ void    push_a(t_ps_list **stack_a, t_ps_list **stack_b)
 		ps_lstadd_front(stack_a, ps_lstnew(temp->content));
 		free(temp);
 	}
+	ft_printf("pa\n");
 }
 
 void    push_b(t_ps_list **stack_a, t_ps_list **stack_b)
@@ -76,32 +79,5 @@ void    push_b(t_ps_list **stack_a, t_ps_list **stack_b)
 		ps_lstadd_front(stack_b, ps_lstnew(temp->content));
 		free(temp);
 	}
-}
-
-void    rotate_a(t_ps_list **stack_a)
-{
-	t_ps_list	*temp;
-	t_ps_list	*first;
-
-	first = (*stack_a);
-	(*stack_a) = (*stack_a)->next;
-	temp = (*stack_a);
-	while (temp->next)
-		temp = temp->next;
-	temp->next = first;
-	first->next = NULL;
-}
-
-void    rotate_b(t_ps_list **stack_b)
-{
-	t_ps_list	*temp;
-	t_ps_list	*first;
-
-	first = (*stack_b);
-	(*stack_b) = (*stack_b)->next;
-	temp = (*stack_b);
-	while (temp->next)
-		temp = temp->next;
-	temp->next = first;
-	first->next = NULL;
+	ft_printf("pb\n");
 }

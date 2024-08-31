@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/30 04:13:38 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 04:46:56 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_ps_list
 {
 	int					content;
 	int					index;
+	int					cost;
 	struct s_ps_list	*next;
 }	t_ps_list;
 
@@ -46,6 +47,15 @@ int			*parsing_again(char **av);
 t_ps_list	*make_stack(t_ps_list *stack_a, int *numarray, int wc);
 int			is_it_sorted(t_ps_list *stack_a);
 
+void		 sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b);
+void		sort_three(t_ps_list **stack_a);
+
+// lets see if this sorting works
+
+void	check_cost(t_ps_list **stack_a, t_ps_list **stack_b);
+void	calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int index);
+
+
 // utils
 
 int			handle_overflow(const char *str, int sign);
@@ -68,6 +78,7 @@ void    swap_a(t_ps_list   **stack_a);
 void    push_a(t_ps_list **stack_a, t_ps_list **stack_b);
 void    push_b(t_ps_list **stack_a, t_ps_list **stack_b);
 void    rotate_a(t_ps_list **stack_a);
-
+void	reverse_rotate_a(t_ps_list **stack_a);
+void	reverse_rotate_b(t_ps_list **stack_b);
 
 #endif
