@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 04:46:56 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 22:51:34 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char		**array_time(char **numbers, char **av, int a);
 int			duplicates_maybe(int *numbers, int count);
 int			*char_to_int_array(char **numbers, int count);
 int			*parsing_again(char **av);
+void		index_that_stack(t_ps_list **stack);
 
 t_ps_list	*make_stack(t_ps_list *stack_a, int *numarray, int wc);
 int			is_it_sorted(t_ps_list *stack_a);
@@ -52,8 +53,9 @@ void		sort_three(t_ps_list **stack_a);
 
 // lets see if this sorting works
 
-void	check_cost(t_ps_list **stack_a, t_ps_list **stack_b);
-void	calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int index);
+void		check_cost(t_ps_list **stack_a, t_ps_list **stack_b);
+int		calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int stack_index);
+t_ps_list	*what_element_is_index(t_ps_list **stack, int whatindex);
 
 
 // utils

@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:15:22 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/28 17:23:53 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:27:03 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,19 @@ int	*char_to_int_array(char **numbers, int count)
 		result[i] = ft_atoi_ps(numbers[i]);
 	free_double_array(numbers);
 	return (result);
+}
+
+void	index_that_stack(t_ps_list **stack)
+{
+	int			i;
+	t_ps_list	*temp;
+	
+	i = 0;
+	temp = (*stack);
+	while (temp)
+	{
+		temp->index = i;
+		i++;
+		temp = temp->next;
+	}
 }

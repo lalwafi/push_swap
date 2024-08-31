@@ -11,6 +11,9 @@ why index in stacks???
 (fixed)     this input i fucked up gave something weird
             ./push_swap ./pushswap "3 2 5 6" 9 10 20 "     " " 6    9 7" 73488 "   323 5432754 32" 2147483648
 wc = 17
+
+./push_swap "1-2"
+./push_swap "1+2"
 only numbers pls
 
 (fixed)     split doesnt hanlde if its 1 character only

@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:28:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/28 16:25:36 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 18:50:04 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,19 @@ int	handle_overflow(const char *str, int sign)
 int	ft_atoi_ps(const char *str)
 {
 	int	sign;
+	int	i;
 
+	i = 0;
 	sign = 1;
+	if (ft_strncmp(str, "-2147483648", 12) == 0)
+		return (-2147483648);
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
+	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]) == 0)
+		write(1, "sign without number\n", 21);
 	if (*str == '-')
 	{
-		sign *= -1;
+		sign = -1;
 		str++;
 	}
 	else if (*str == '+')

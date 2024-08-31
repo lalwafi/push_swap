@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 00:37:18 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:26:00 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,7 @@ t_ps_list	*make_stack(t_ps_list *stack_a, int *numarray, int wc)
 		ps_lstadd_back(&stack_a, new);
 	}
 	i = 0;
-	new = stack_a;
-	while (new)
-	{
-		new->index = i;
-		new = new->next;
-		i++;
-	}
+	index_that_stack(&stack_a);
 	return (stack_a);
 }
 
@@ -87,18 +81,3 @@ int	main(int ac, char **av)
 	ps_lstclear(&stack_a);
 	ps_lstclear(&stack_b);
 }
-
-// int main(void)
-// {
-// 	char *a = "7";
-// 	char **b = ft_split(a, ' ');
-// 	if (!b)
-// 	{
-// 		ft_printf("nuh uh\n");
-// 		return (0);
-// 	}
-// 	int i = 0;
-// 	while (b[i] != NULL)
-// 		ft_printf("%s\n", b[i++]);
-// 	return (0);
-// }

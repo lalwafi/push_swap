@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 19:53:53 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 00:39:56 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:23:39 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void    rotate_a(t_ps_list **stack_a)
 		temp = temp->next;
 	temp->next = first;
 	first->next = NULL;
+	index_that_stack(stack_a);
 	ft_printf("ra\n");
 }
 
@@ -39,6 +40,7 @@ void    rotate_b(t_ps_list **stack_b)
 		temp = temp->next;
 	temp->next = first;
 	first->next = NULL;
+	index_that_stack(stack_b);
 	ft_printf("rb\n");
 }
 
@@ -55,6 +57,7 @@ void	reverse_rotate_a(t_ps_list **stack_a)
 	while (temp->next != man)
 		temp = temp->next;
 	temp->next = NULL;
+	index_that_stack(stack_a);
 	ft_printf("rra\n");
 }
 
@@ -71,5 +74,6 @@ void	reverse_rotate_b(t_ps_list **stack_b)
 	while (temp->next != man)
 		temp = temp->next;
 	temp->next = NULL;
+	index_that_stack(stack_b);
 	ft_printf("rrb\n");
 }

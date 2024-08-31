@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:11:21 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/30 06:17:12 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/08/31 19:26:25 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ps_lstprint(t_ps_list *lst)
 {
 	while (lst)
 	{
-		ft_printf("%d\n", lst -> content);
+		ft_printf("%d) %d\n", lst->index ,lst -> content);
 		lst = lst -> next;
 	}
 }
