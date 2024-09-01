@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 22:51:34 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 08:47:52 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,20 @@ typedef struct s_ps_list
 	struct s_ps_list	*next;
 }	t_ps_list;
 
-// typedef struct s_parsing
-// {
-// 	int				count;
-// };	t_parsing;
+typedef struct s_cost
+{
+	int			i;
+	int			cost;
+	long		diff_min;
+	long		diff_max;
+	int			index_min;
+	int			index_max;
+	t_ps_list	*temp_a;
+	t_ps_list	*temp_b;
+	t_ps_list	*target_b_max;
+	t_ps_list	*target_a;
+	int			temp_cost;
+}	t_cost;
 
 
 // push_swap functions
@@ -48,15 +58,16 @@ void		index_that_stack(t_ps_list **stack);
 t_ps_list	*make_stack(t_ps_list *stack_a, int *numarray, int wc);
 int			is_it_sorted(t_ps_list *stack_a);
 
-void		 sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b);
+void		sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b);
 void		sort_three(t_ps_list **stack_a);
 
 // lets see if this sorting works
 
-void		check_cost(t_ps_list **stack_a, t_ps_list **stack_b);
-int		calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int stack_index);
+t_cost		*check_cost(t_ps_list **stack_a, t_ps_list **stack_b, t_cost *cs);
+t_cost		*calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int stack_index);
 t_ps_list	*what_element_is_index(t_ps_list **stack, int whatindex);
-
+void		sort_it(t_ps_list **stack_a, t_ps_list **stack_b, t_cost *cs);
+void		initialize_cost_stuff(t_ps_list **stack_a, t_ps_list **stack_b, t_cost **cs);
 
 // utils
 
