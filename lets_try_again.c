@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 09:14:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 13:09:50 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 13:46:52 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
 	}
 	else
 	{
-		push_b(stack_a, stack_b);
-		push_b(stack_a, stack_b);
 		// ft_printf("-------stack_a-------\n");
-		ps_lstprint(*stack_a);
+		// ps_lstprint(*stack_a);
 		// ft_printf("-------stack_b-------\n");
-		ps_lstprint(*stack_b);
+		// ps_lstprint(*stack_b);
         target_a = *stack_a;
         i = ps_lstsize(*stack_a);
         // ft_printf("list size of stack_a = %d\n", i);
@@ -48,11 +46,19 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
             if (i > 0)
                 target_a = what_element_is_index(stack_a, 0);
         }
-        
-        i = ps_lstsize(*stack_b);
-        // ft_printf("list size of stack_b = %d\n", i);
-        while (i-- > 0)
-        
+        target_b = find_maximum(stack_b, target_b);
+        if (target_b->index >= (ps_lstsize(*stack_b) / 2) - 1)
+        {
+            while (target_b->index != 0)
+			    reverse_rotate_b(stack_b);
+        }
+        else
+        {
+            while (target_b->index != 0)
+		    	rotate_b(stack_b);
+        }
+        while (*stack_b)
+            push_a(stack_a, stack_b);
 	}
 	// sort_it(stack_a, stack_b, cost_stuff);
 }
@@ -60,11 +66,25 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
 t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a)
 {
     t_ps_list   *target_b;
-    t_ps_list   *temp;
     int         flag;
     
     flag = 1;
     target_b = *stack_b;
+    flag = find_flag_for_target_b(stack_b, flag, target_a);
+    if (flag == 0)
+        return (find_maximum(stack_b, target_b));
+    else if (flag == 1)
+        return (find_minimum(stack_b, target_b));
+    else if (flag == 2)
+        return(find_closest_minimum(stack_b, target_a));
+    return (target_b);
+}
+
+int find_flag_for_target_b(t_ps_list **stack_b, int flag, t_ps_list *target_a)
+{
+    t_ps_list   *temp;
+
+    flag = 1;
     temp = *stack_b;
     while (temp)
     {
@@ -82,62 +102,41 @@ t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a)
             temp = temp->next;
         }
     }
-    // checks if theres any bigger in b than target_a, if not it looks for maximum flag 1
-    // if number is lowest than everything in b theres no check flag 2
-    // if target_a is smaller than anything in b       flag == 0    b >> a      maximum
-    // if target_a is bigger than anything in b        flag == 1    b << a      minimum
-    // if target_a is in the middle of b max and min   flag == 2    b > a > b   closest maximum
-    // ft_printf("hello\n");
-    // ft_printf("flag = %d\n", flag);
-    if (flag == 0)
-        find_maximum
-    // {
-    //     // maximum
-    //     // ft_printf("hi\n");
-    //     temp = *stack_b;
-    //     while (temp)
-    //     {
-    //         if (temp->next && temp->content < temp->next->content && temp->next->content > target_b->content)
-    //             target_b = temp->next;
-    //         temp = temp->next;
-    //     }
-    //     // ft_printf("target_b should be maximum = %d\n", target_b->content);
-    //     return (target_b);
-    // }
-    else if (flag == 1)
-    {
-        // minimum
-        temp = *stack_b;
-        while (temp)
-        {
-            // ft_printf("man\n");
-            if (temp->next && temp->content < temp->next->content && temp->next->content > target_b->content)
-                target_b = temp->next;
-            temp = temp->next;
-        }
-        return (target_b);
-    }
-    else if (flag == 2)
-        return(find_closest_minimum(stack_b, target_a));
-    return (target_b);
+    return (flag);
 }
 
-t_ps_list    *find_maximum(t_ps_list **stack)
+t_ps_list    *find_minimum(t_ps_list **stack, t_ps_list *target)
 {
     t_ps_list   *temp;
-    t_ps_list   *result;
+
+    // minimum
+    temp = *stack;
+    while (temp)
+    {
+        // ft_printf("man\n");
+        if (temp->next && temp->content < temp->next->content && temp->next->content > target->content)
+            target = temp->next;
+        temp = temp->next;
+    }
+    // ft_printf("target in find minimum = %d\n", target->content);
+    return (target);
+}
+
+t_ps_list    *find_maximum(t_ps_list **stack, t_ps_list *target)
+{
+    t_ps_list   *temp;
     
     // maximum
     // ft_printf("hi\n");
     temp = *stack;
     while (temp)
     {
-        if (temp->next && temp->content < temp->next->content && temp->next->content > result->content)
-            result = temp->next;
+        if (temp->next && temp->content < temp->next->content && temp->next->content > target->content)
+            target = temp->next;
         temp = temp->next;
     }
-    // ft_printf("result should be maximum = %d\n", result->content);
-    return (result);
+    // ft_printf("target should be maximum = %d\n", target->content);
+    return (target);
 }
 
 t_ps_list    *find_closest_minimum(t_ps_list **stack, t_ps_list *target)
@@ -166,20 +165,6 @@ void	lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list 
 	// int i;
 
     (void)target_a;
-    // if (target_a->index >= (ps_lstsize(*stack_a) / 2))
-	// {
-    //     ft_printf("if a in sort solo\n");
-    //     i = target_a->index;
-	// 	while (i++ != ps_lstsize(*stack_a))
-	// 		reverse_rotate_a(&target_a);
-	// }
-	// else
-	// {
-    //     ft_printf("else a in sort solo\n");
-    //     i = target_a->index;
-	// 	while (i-- != 0)
-	// 		rotate_a(&target_a);
-	// }
 	if (target_b->index >= (ps_lstsize(*stack_b) / 2) - 1)
 	{
         // ft_printf("if b in sort solo\n");

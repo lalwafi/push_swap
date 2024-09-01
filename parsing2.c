@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:15:22 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 12:09:16 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 13:47:26 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	*parsing_again(char **av)
 	int	wc;
 
 	wc = count_how_many(av);
-	ft_printf("wc = %d\n", wc);
+	// ft_printf("wc = %d\n", wc);
 	i = 0;
 	while (av[++i])
 	{
