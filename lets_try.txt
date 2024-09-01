@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 22:12:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 08:55:13 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 09:33:28 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
 {
 	t_cost	*cost_stuff;
 	
+	ft_calloc()
 	initialize_cost_stuff(stack_a, stack_b, &cost_stuff);
 	(void)stack_b;
 	if (ps_lstsize(*stack_a) == 3)

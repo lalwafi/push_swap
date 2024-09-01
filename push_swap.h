@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 08:47:52 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 10:02:36 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,20 @@ void		sort_three(t_ps_list **stack_a);
 
 // lets see if this sorting works
 
-t_cost		*check_cost(t_ps_list **stack_a, t_ps_list **stack_b, t_cost *cs);
-t_cost		*calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int stack_index);
+// t_cost		*check_cost(t_ps_list **stack_a, t_ps_list **stack_b, t_cost *cs);
+// t_cost		*calculate_cost(t_ps_list **stack_a, t_ps_list **stack_b, int stack_index);
 t_ps_list	*what_element_is_index(t_ps_list **stack, int whatindex);
-void		sort_it(t_ps_list **stack_a, t_ps_list **stack_b, t_cost *cs);
-void		initialize_cost_stuff(t_ps_list **stack_a, t_ps_list **stack_b, t_cost **cs);
+// void		sort_it(t_ps_list **stack_a, t_ps_list **stack_b, t_cost *cs);
+// void		initialize_cost_stuff(t_ps_list **stack_a, t_ps_list **stack_b, t_cost **cs);
+
+
+
+
+
+// try again
+
+void	lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list *target_a, t_ps_list *target_b);
+t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a);
 
 // utils
 
