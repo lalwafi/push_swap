@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 09:14:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 11:38:38 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 11:55:26 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a)
                 target_b = temp->next;
             temp = temp->next;
         }
-        // ft_printf("hi\n");
+        ft_printf("target_b should be maximum = %d\n", target_b);
         return (target_b);
     }
     else if (flagordiff == 1)
@@ -144,21 +144,23 @@ void	lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list 
 	// 	while (i-- != 0)
 	// 		rotate_a(&target_a);
 	// }
-	if (target_b->index >= (ps_lstsize(*stack_b) / 2))
+	if (target_b->index >= (ps_lstsize(*stack_b) / 2) - 1)
 	{
         ft_printf("if b in sort solo\n");
-        i = target_b->index;
-		while (i++ != ps_lstsize(*stack_b)){
-			reverse_rotate_b(&target_b);
+        i = target_b->index - 1;
+        ft_printf("list size = %d\n", ps_lstsize(*stack_b));
+		while (++i <= ps_lstsize(*stack_b)){
+			reverse_rotate_b(stack_b);
             ft_printf("target_b->index = %d\n", target_b->index);
         }
 	}
 	else
 	{
         ft_printf("else b in sort solo\n");
-        i = target_b->index;
-		while (i-- != 0){
-			rotate_b(&target_b);
+        i = target_b->index + 1;
+        ft_printf("list size = %d\n", ps_lstsize(*stack_b));
+		while (--i != 0){
+			reverse_rotate_b(stack_b);
             ft_printf("target_b->index = %d\n", target_b->index);
         }
 	}
