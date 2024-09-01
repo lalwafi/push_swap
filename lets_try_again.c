@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 09:14:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 11:33:41 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 11:38:38 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,8 +157,10 @@ void	lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list 
 	{
         ft_printf("else b in sort solo\n");
         i = target_b->index;
-		while (i-- != 0)
+		while (i-- != 0){
 			rotate_b(&target_b);
+            ft_printf("target_b->index = %d\n", target_b->index);
+        }
 	}
 	push_b(stack_a, stack_b);
 }
