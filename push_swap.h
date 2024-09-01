@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 10:02:36 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 11:03:19 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,11 @@ void		ps_lstadd_front(t_ps_list **lst, t_ps_list *new);
 // push_swap utils
 
 void    swap_a(t_ps_list   **stack_a);
+void    swap_b(t_ps_list **stack_b);
 void    push_a(t_ps_list **stack_a, t_ps_list **stack_b);
 void    push_b(t_ps_list **stack_a, t_ps_list **stack_b);
 void    rotate_a(t_ps_list **stack_a);
+void    rotate_b(t_ps_list **stack_b);
 void	reverse_rotate_a(t_ps_list **stack_a);
 void	reverse_rotate_b(t_ps_list **stack_b);
 

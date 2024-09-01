@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 09:14:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 10:41:23 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 11:33:41 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,36 @@ t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a)
 {
     t_ps_list   *target_b;
     t_ps_list   *temp;
-    int         flag;
+    int         flagordiff;
     
-    flag = 0;
+    flagordiff = 0;
     target_b = *stack_b;
     temp = *stack_b;
     while (temp)
     {
         if (temp->content > target_a->content)
-            flag = 1;
+            flagordiff = 1;
         temp = temp->next;
         // ft_printf("\nhi\n");
     }
-    if (flag == 1)
+    if (flagordiff == 1)
     {
         while (temp)
         {
             if (temp->content < target_a->content)
-                flag = 0;
+                flagordiff = 2;
             temp = temp->next;
         }
     }
-    // checks if theres any bigger in b than target_a, if not it looks for maximum flag 1
-    // if number is lowest than everything in b theres no check flag 2
+    // checks if theres any bigger in b than target_a, if not it looks for maximum flagordiff 1
+    // if number is lowest than everything in b theres no check flagordiff 2
+    // if target_a is smaller than anything in b       flagordiff == 0    b >> a      maximum
+    // if target_a is bigger than anything in b        flagordiff == 1    b << a      minimum
+    // if target_a is in the middle of b max and min   flagordiff == 2    b > a > b   closest maximum
     // ft_printf("hello\n");
-    if (flag == 1)
+    if (flagordiff == 0)
     {
-        // closest maximum
+        // maximum
         // ft_printf("hi\n");
         temp = *stack_b;
         while (temp)
@@ -90,17 +93,34 @@ t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a)
         // ft_printf("hi\n");
         return (target_b);
     }
-    else if (flag == 0)
+    else if (flagordiff == 1)
     {
-        // closest minimum
+        // minimum
         temp = *stack_b;
         while (temp)
         {
             // ft_printf("man\n");
-            if (temp->next && temp->content < temp->next->content && temp->next->content < target_b->content)
+            if (temp->next && temp->content > temp->next->content && temp->next->content < target_b->content)
                 target_b = temp->next;
             temp = temp->next;
         }
+        return (target_b);
+    }
+    else if (flagordiff == 2)
+    {
+        // closest maximum
+        flagordiff = -1;
+        temp = *stack_b;
+        while (temp)
+        {
+            if (flagordiff != -1 && temp->content > target_a->content && flagordiff > (temp->content - target_a->content))
+            {
+                flagordiff = temp->content - target_a->content;
+                target_b = temp;
+            }
+            temp = temp->next;
+        }
+        return (target_b);
     }
     return (target_b);
 }
@@ -109,35 +129,36 @@ void	lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list 
 {
 	int i;
 
-    if (target_a->index >= (ps_lstsize(*stack_a) / 2))
-	{
-        ft_printf("if1 in sort solo\n");
-        i = target_a->index;
-		while (i++ != ps_lstsize(*stack_a))
-			reverse_rotate_a(&target_a);
-	}
-	else
-	{
-        ft_printf("else1 in sort solo\n");
-        i = target_a->index;
-		while (i-- != 0)
-			rotate_a(&target_a);
-	}
+    (void)target_a;
+    // if (target_a->index >= (ps_lstsize(*stack_a) / 2))
+	// {
+    //     ft_printf("if a in sort solo\n");
+    //     i = target_a->index;
+	// 	while (i++ != ps_lstsize(*stack_a))
+	// 		reverse_rotate_a(&target_a);
+	// }
+	// else
+	// {
+    //     ft_printf("else a in sort solo\n");
+    //     i = target_a->index;
+	// 	while (i-- != 0)
+	// 		rotate_a(&target_a);
+	// }
 	if (target_b->index >= (ps_lstsize(*stack_b) / 2))
 	{
-        ft_printf("if2 in sort solo\n");
+        ft_printf("if b in sort solo\n");
         i = target_b->index;
 		while (i++ != ps_lstsize(*stack_b)){
-			reverse_rotate_a(&target_b);
+			reverse_rotate_b(&target_b);
             ft_printf("target_b->index = %d\n", target_b->index);
         }
 	}
 	else
 	{
-        ft_printf("else2 in sort solo\n");
+        ft_printf("else b in sort solo\n");
         i = target_b->index;
 		while (i-- != 0)
-			rotate_a(&target_b);
+			rotate_b(&target_b);
 	}
 	push_b(stack_a, stack_b);
 }
