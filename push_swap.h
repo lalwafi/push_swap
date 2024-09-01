@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/01 11:03:19 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 13:07:56 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ t_ps_list	*what_element_is_index(t_ps_list **stack, int whatindex);
 
 // try again
 
-void	lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list *target_a, t_ps_list *target_b);
+void		lemme_try_sorting_solo(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list *target_a, t_ps_list *target_b);
 t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a);
+t_ps_list    *find_closest_minimum(t_ps_list **stack, t_ps_list *target);
 
 // utils
 

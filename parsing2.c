@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:15:22 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 19:27:03 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/01 12:09:16 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void	index_that_stack(t_ps_list **stack)
 	while (temp)
 	{
 		temp->index = i;
+		// ft_printf("index_that_stack = %d\n", i);
 		i++;
 		temp = temp->next;
 	}
