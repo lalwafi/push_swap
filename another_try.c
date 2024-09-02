@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 04:11:32 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 17:26:18 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 18:59:21 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void sort_that_stack_again(t_ps_list **stack_a, t_ps_list **stack_b)
 	int         i;
 	int         flag;
 
-  	ft_printf("list size = %d\n", ps_lstsize(*stack_a));
+  	// ft_printf("list size = %d\n", ps_lstsize(*stack_a));
 	flag = 0;
 	if (ps_lstsize(*stack_a) == 3)
 		return (sort_three(stack_a));
@@ -30,9 +30,14 @@ void sort_that_stack_again(t_ps_list **stack_a, t_ps_list **stack_b)
 			swap_a(stack_a);
 		return ;
 	}
-	// else if(ps_lstsize(*stack_a) == 4)
-	// {
-	// }
+	else if(ps_lstsize(*stack_a) == 4)
+	{
+		sort_four(stack_a, stack_b);
+	}
+	else if(ps_lstsize(*stack_a) == 5)
+	{
+		sort_five(stack_a, stack_b);
+	}
 	else
 	{
 		push_b(stack_a, stack_b);
@@ -81,6 +86,66 @@ void sort_that_stack_again(t_ps_list **stack_a, t_ps_list **stack_b)
 		while (*stack_b)
 			push_a(stack_a, stack_b);
 	}
+}
+
+t_ps_list    *find_true_minimum(t_ps_list **stack, t_ps_list *target)
+{
+	t_ps_list   *temp;
+
+	// minimum
+	temp = *stack;
+	while (temp)
+	{
+		// ft_printf("man\n");
+		if (temp->next && temp->content > temp->next->content && temp->next->content < target->content)
+			target = temp->next;
+		temp = temp->next;
+	}
+	// ft_printf("target in find minimum = %d\n", target->content);
+	return (target);
+}
+
+void	sort_four(t_ps_list **stack_a, t_ps_list **stack_b)
+{
+	t_ps_list	*temp;
+	
+	temp = *stack_a;
+	temp = find_true_minimum(stack_a, temp);
+	// ft_printf("temp = %d    index = %d\n", temp->content, temp->index);
+	while (temp->index > 0)
+		rotate_a(stack_a);
+	push_b(stack_a, stack_b);
+	sort_three(stack_a);
+	push_a(stack_a, stack_b);
+}
+
+void	sort_five(t_ps_list **stack_a, t_ps_list **stack_b)
+{
+	t_ps_list	*temp;
+	
+	temp = *stack_a;
+	temp = find_true_minimum(stack_a, temp);
+	if (temp->index > ps_lstsize(*stack_a) / 2)
+		while (temp->index > 0)
+			reverse_rotate_a(stack_a);
+	else
+		while (temp->index > 0)
+			rotate_a(stack_a);
+	push_b(stack_a, stack_b);
+	temp = *stack_a;
+	temp = find_true_minimum(stack_a, temp);
+	if (temp->index > ps_lstsize(*stack_a) / 2)
+		while (temp->index > 0)
+			reverse_rotate_a(stack_a);
+	else
+		while (temp->index > 0)
+			rotate_a(stack_a);
+	push_b(stack_a, stack_b);
+	if ((*stack_b)->content < (*stack_b)->next->content)
+		swap_b(stack_b);
+	sort_three(stack_a);
+	push_a(stack_a, stack_b);
+	push_a(stack_a, stack_b);
 }
 
 t_ps_list	*where_is_maximum(t_ps_list	**stack_b)

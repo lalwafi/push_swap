@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 13:59:50 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 18:55:01 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ int			is_it_sorted(t_ps_list *stack_a);
 
 void		sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b);
 void		sort_three(t_ps_list **stack_a);
+void		sort_four(t_ps_list **stack_a, t_ps_list **stack_b);
+void		sort_five(t_ps_list **stack_a, t_ps_list **stack_b);
+t_ps_list    *find_true_minimum(t_ps_list **stack, t_ps_list *target);
 
 // lets see if this sorting works
 

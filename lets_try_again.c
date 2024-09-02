@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 09:14:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 17:09:17 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 18:58:28 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
 	t_ps_list   *target_b;
 	int         i;
 
-	ft_printf("list size = %d\n", ps_lstsize(*stack_a));
+	// ft_printf("list size = %d\n", ps_lstsize(*stack_a));
 	if (ps_lstsize(*stack_a) == 3)
 		return (sort_three(stack_a));
 	else if (ps_lstsize(*stack_a) == 2)

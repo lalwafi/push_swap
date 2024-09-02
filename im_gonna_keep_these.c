@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 14:00:57 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 14:39:07 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 17:57:05 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	sort_three(t_ps_list **stack_a)
 {
+	if (is_it_sorted(*stack_a) == 0)
+		return ;
 	if ((*stack_a)->content < (*stack_a)->next->content &&
 		(*stack_a)->content < (*stack_a)->next->next->content)
 	{

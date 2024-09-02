@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:24:07 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 14:36:54 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 18:28:23 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,10 @@ int	lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target)
 		return (0);
 	if (target->index > (ps_lstsize(*stack) / 2) - 1)
 	{
-		// cost = (ps_lstsize(*stack) - 1) - target->index;
-		// reverse rotate
-		// ft_printf("lemme try sorting cost target = %d   index = %d   list size = %d\n", target->content, target->index, (ps_lstsize(*stack) - 1));
-		// while (index < (ps_lstsize(*stack) - 1))
-		// {
-		// 	ft_printf("hi\n");
-		// 	index++;
-		// 	cost++;
-		// }
 		return (ps_lstsize(*stack) - target->index);
 	}
 	else
 	{
-		// index = target->index;
-		// ft_printf("lemme try sorting cost target = %d   index = %d\n", target->content, target->index);
-		// while (index != 0)
-		// {
-		// 	ft_printf("hi\n");
-		// 	index--;
-		// 	cost++;
-		// }
 		return (target->index);
 	}
 	return (0);
