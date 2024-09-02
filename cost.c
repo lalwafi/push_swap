@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:24:07 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 08:51:53 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 14:36:54 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,25 @@ t_cost	lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b)
 	int			cost;
 	// int     	i;
 
-	if (!stack_a || !*stack_a || !stack_b ||!*stack_b)
-	{
-		costcal.target_a = (*stack_a);
-		costcal.target_b = (*stack_b);
-		costcal.cost     = INT_MAX;
-	}
+	costcal.target_a = (*stack_a);
+	costcal.target_b = (*stack_b);
+	costcal.cost     = INT_MAX;
 	temp_a = *stack_a;
 	temp_b = *stack_b;
 	while (temp_a)
 	{
 		cost = 0;
-		ft_printf("reset cost\n");
-		ft_printf("temp_a = %d\n", temp_a->content);
+		// ft_printf("reset cost\n");
+		// ft_printf("temp_a = %d\n", temp_a->content);
 		cost += lemme_try_sorting_cost(stack_a, temp_a);
-		ft_printf("inside cost calculator a = %d\n", cost);
+		// ft_printf("inside cost calculator a = %d\n", cost);
 		temp_b = find_target_b(stack_b, temp_a);
 		// ft_printf("temp_b after find_target_b = %d\n", temp_b->content);
 		cost += lemme_try_sorting_cost(stack_b, temp_b);
-		ft_printf("inside cost calculator b = %d\n", cost);
+		// ft_printf("inside cost calculator b = %d\n", cost);
 		// for push_b
 		cost += 1;
-		ft_printf("inside cost calculator final = %d\n", cost);
+		// ft_printf("inside cost calculator final = %d\n", cost);
 		if ((cost < costcal.cost))
 		{
 			costcal.target_a = temp_a;
@@ -60,37 +57,39 @@ t_cost	lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b)
 
 int	lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target)
 {
-	int cost;
-	int	index;
+	// int cost;
+	// int	index;
 
-	cost = 0;
+	// cost = 0;
 	// ft_printf("in lemme_sort_cost target = %d\n", target->content);
 	if (target->index == 0)
-		return (cost);
-	if (target->index >= (ps_lstsize(*stack) / 2) - 1)
+		return (0);
+	if (target->index > (ps_lstsize(*stack) / 2) - 1)
 	{
-		index = target->index;
+		// cost = (ps_lstsize(*stack) - 1) - target->index;
 		// reverse rotate
-		ft_printf("lemme try sorting cost target = %d   index = %d   list size = %d\n", target->content, target->index, (ps_lstsize(*stack) - 1));
-		while (index != (ps_lstsize(*stack) - 1))
-		{
-			ft_printf("hi\n");
-			index++;
-			cost++;
-		}
+		// ft_printf("lemme try sorting cost target = %d   index = %d   list size = %d\n", target->content, target->index, (ps_lstsize(*stack) - 1));
+		// while (index < (ps_lstsize(*stack) - 1))
+		// {
+		// 	ft_printf("hi\n");
+		// 	index++;
+		// 	cost++;
+		// }
+		return (ps_lstsize(*stack) - target->index);
 	}
 	else
 	{
-		index = target->index;
-		ft_printf("lemme try sorting cost target = %d   index = %d\n", target->content, target->index);
-		while (index != 0)
-		{
-			ft_printf("hi\n");
-			index--;
-			cost++;
-		}
+		// index = target->index;
+		// ft_printf("lemme try sorting cost target = %d   index = %d\n", target->content, target->index);
+		// while (index != 0)
+		// {
+		// 	ft_printf("hi\n");
+		// 	index--;
+		// 	cost++;
+		// }
+		return (target->index);
 	}
-	return (cost);
+	return (0);
 }
 
 t_ps_list   *find_target_b_cost(t_ps_list **stack_b, t_ps_list *target_a)

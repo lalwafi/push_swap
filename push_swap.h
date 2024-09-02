@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 08:06:16 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 13:59:50 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,34 @@ t_ps_list	*what_element_is_index(t_ps_list **stack, int whatindex);
 // try again
 
 void		lemme_try_sorting_b(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list *target_a, t_ps_list *target_b);
-t_ps_list   *find_target_b(t_ps_list **stack_b, t_ps_list *target_a);
+t_ps_list	*find_target_b(t_ps_list **stack_b, t_ps_list *target_a);
 t_ps_list	*find_closest_minimum(t_ps_list **stack, t_ps_list *target);
-t_ps_list   *find_maximum(t_ps_list **stack, t_ps_list *target);
-t_ps_list    *find_minimum(t_ps_list **stack, t_ps_list *target);
-int find_flag_for_target_b(t_ps_list **stack_b, int flag, t_ps_list *target_a);
+t_ps_list	*find_maximum(t_ps_list **stack, t_ps_list *target);
+t_ps_list	*find_minimum(t_ps_list **stack, t_ps_list *target);
+int 		find_flag_for_target_b(t_ps_list **stack_b, int flag, t_ps_list *target_a);
+
+// try again now with cost
+
+void	sort_that_stack_again(t_ps_list **stack_a, t_ps_list **stack_b);
+int 	find_flag_to_sort(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b);
+void    sort_it_now_pls_thx(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b, int flag);
+void	if_flag_zero(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b);
+void	if_flag_one(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b);
+void	if_flag_two(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b);
+void	if_flag_three(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b);
+t_ps_list	*where_is_maximum(t_ps_list	**stack_b);
 
 
 // cost stuff
 
-int	lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target);
-t_cost	lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b);
+int			lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target);
+t_cost		lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b);
 t_ps_list   *find_target_b_cost(t_ps_list **stack_b, t_ps_list *target_a);
-int find_flag_for_target_b_cost(t_ps_list **stack_b, int flag, t_ps_list *target_a);
+int 		find_flag_for_target_b_cost(t_ps_list **stack_b, int flag, t_ps_list *target_a);
 t_ps_list    *find_minimum_cost(t_ps_list **stack, t_ps_list *target);
 t_ps_list    *find_maximum_cost(t_ps_list **stack, t_ps_list *target);
 t_ps_list    *find_closest_minimum_cost(t_ps_list **stack, t_ps_list *target);
 
-void sort_that_stack_again(t_ps_list **stack_a, t_ps_list **stack_b);
-int find_flag_to_sort(t_ps_list *target_a, t_ps_list *target_b, t_ps_list **stack_a, t_ps_list **stack_b);
 
 
 // utils

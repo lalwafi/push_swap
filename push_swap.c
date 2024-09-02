@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:40:51 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 08:21:42 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 17:11:24 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ int	main(int ac, char **av)
 	if (is_it_sorted(stack_a) == 1)
 	{
 		// ft_printf("not sorted\n");
-		push_b(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
-		ft_printf("-------stack_a-------\n");
-		ps_lstprint(stack_a);
-		ft_printf("-------stack_b-------\n");
-		ps_lstprint(stack_b);
+		// push_b(&stack_a, &stack_b);
+		// push_b(&stack_a, &stack_b);
+		// ft_printf("-------stack_a-------\n");
+		// ps_lstprint(stack_a);
+		// ft_printf("-------stack_b-------\n");
+		// ps_lstprint(stack_b);
 		sort_that_stack_again(&stack_a, &stack_b);
-		sort_that_stack(&stack_a, &stack_b);
+		// sort_that_stack(&stack_a, &stack_b);
 		// if (is_it_sorted(stack_a) == 1)
 		// swap_a(&stack_a);
 		// push_b(&stack_a, &stack_b);
@@ -78,10 +78,10 @@ int	main(int ac, char **av)
 		// reverse_rotate_a(&stack_a);
 		// reverse_rotate_b(&stack_b);
 		// ft_printf("done sorting??????\n");
-		ft_printf("-------stack_a-------\n");
-		ps_lstprint(stack_a);
-		ft_printf("-------stack_b-------\n");
-		ps_lstprint(stack_b);
+		// ft_printf("-------stack_a-------\n");
+		// ps_lstprint(stack_a);
+		// ft_printf("-------stack_b-------\n");
+		// ps_lstprint(stack_b);
 	}
 	if (is_it_sorted(stack_a) == 0)
 		ft_printf("SORTED!!!\n");

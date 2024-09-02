@@ -19,3 +19,7 @@ only numbers pls
 (fixed)     split doesnt hanlde if its 1 character only
 
 make sure to only use "Error\n"
+
+I DIDNT HANDLE IN COST CALCULATION ROTATING BOTH A AND B
+
+makefile meow -fsanitize=address -g3

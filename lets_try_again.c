@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 09:14:04 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 08:20:15 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 17:09:17 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
 	t_ps_list   *target_b;
 	int         i;
 
+	ft_printf("list size = %d\n", ps_lstsize(*stack_a));
 	if (ps_lstsize(*stack_a) == 3)
 		return (sort_three(stack_a));
 	else if (ps_lstsize(*stack_a) == 2)
@@ -49,7 +50,7 @@ void sort_that_stack(t_ps_list **stack_a, t_ps_list **stack_b)
 		target_b = *stack_b;
 		target_b = find_maximum(stack_b, target_b);
 		// ft_printf("target_b for sorting b %d\n", target_b->content);
-		if (target_b->index >= (ps_lstsize(*stack_b) / 2) - 1)
+		if (target_b->index > (ps_lstsize(*stack_b) / 2) - 1)
 		{
 			while (target_b->index != 0)
 				reverse_rotate_b(stack_b);
@@ -134,8 +135,7 @@ t_ps_list    *find_maximum(t_ps_list **stack, t_ps_list *target)
 	// ft_printf("temp in find_max = %d\n", temp->content);
 	while (temp)
 	{
-		if (temp->next && temp->content < temp->next->content &&
-			temp->next->content > target->content)
+		if (temp->next && temp->content < temp->next->content && temp->next->content > target->content)
 			target = temp->next;
 		temp = temp->next;
 	}
@@ -169,7 +169,7 @@ void	lemme_try_sorting_b(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list *ta
 	// int i;
 
 	(void)target_a;
-	if (target_b->index >= (ps_lstsize(*stack_b) / 2) - 1)
+	if (target_b->index > (ps_lstsize(*stack_b) / 2) - 1)
 	{
 		// ft_printf("if b in sort solo\n");
 		// i = target_b->index - 1;
@@ -192,40 +192,3 @@ void	lemme_try_sorting_b(t_ps_list **stack_a, t_ps_list **stack_b, t_ps_list *ta
 	push_b(stack_a, stack_b);
 }
 
-void	sort_three(t_ps_list **stack_a)
-{
-	if ((*stack_a)->content < (*stack_a)->next->content &&
-		(*stack_a)->content < (*stack_a)->next->next->content)
-	{
-		reverse_rotate_a(stack_a);
-		swap_a(stack_a);
-	}
-	else if ((*stack_a)->content > (*stack_a)->next->content &&
-			(*stack_a)->content < (*stack_a)->next->next->content)
-		swap_a(stack_a);
-	else if ((*stack_a)->content < (*stack_a)->next->content &&
-			(*stack_a)->content > (*stack_a)->next->next->content)
-		reverse_rotate_a(stack_a);
-	else if ((*stack_a)->content > (*stack_a)->next->content &&
-			(*stack_a)->content > (*stack_a)->next->next->content &&
-			(*stack_a)->next->content > (*stack_a)->next->next->content)
-	{
-		swap_a(stack_a);
-		reverse_rotate_a(stack_a);
-	}
-	else if ((*stack_a)->content > (*stack_a)->next->content &&
-			(*stack_a)->content > (*stack_a)->next->next->content)
-		rotate_a(stack_a);
-}
-
-t_ps_list	*what_element_is_index(t_ps_list **stack, int whatindex)
-{
-	t_ps_list	*temp;
-
-	if (whatindex == -5)
-		return (NULL);
-	temp = (*stack);
-	while (temp->index != whatindex)
-		temp = temp->next;
-	return (temp);
-}
