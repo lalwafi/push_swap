@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:12:53 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 18:44:40 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 20:39:33 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	check_for_spaces_empty(char *str)
 
 int	count_how_many(char **av)
 {
-	int count;
-	int i;
-	int j;
-	char **idk;
-	
+	int		count;
+	int		i;
+	int		j;
+	char	**idk;
+
 	count = 0;
 	j = 0;
 	i = 0;
@@ -64,11 +64,14 @@ int	any_letters(char *str)
 	i = -1;
 	while (str[++i])
 	{
-		if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]) == 0 && str[i + 1] != ' ')
+		if ((str[i] == '-' || str[i] == '+')
+			&& ft_isdigit(str[i + 1]) == 0 && str[i + 1] != ' ')
 			return (2);
-		else if ((str[i] == '-' || str[i] == '+') && i != 0 && str[i - 1] != ' ')
+		else if ((str[i] == '-' || str[i] == '+')
+			&& i != 0 && str[i - 1] != ' ')
 			return (2);
-		else if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '+' && str[i] != '-')
+		else if (ft_isdigit(str[i]) == 0 && str[i] != ' '
+			&& str[i] != '+' && str[i] != '-')
 			return (1);
 	}
 	return (0);

@@ -1,12 +1,13 @@
 NAME    = push_swap
 CC      = cc
-CFLAGS  = -Wall -Werror -Wextra -fsanitize=address -g3
+CFLAGS  = -Wall -Werror -Wextra
 
 SRCS    = push_swap.c parsing1.c parsing2.c utils/ft_atoi_ps.c \
 			utils/list_stuff.c utils/sorting_utils_1.c \
 			utils/sorting_utils_2.c utils/sorting_utils_3.c \
-			lets_try_again.c cost.c another_try.c \
-			im_gonna_keep_these.c
+			cost.c sort_it_1.c sort_it_2.c flag_stuff.c\
+			sort_it_4.c utils/list_stuff_2.c \
+			cost_2.c sort_it_3.c
 
 OBJ     = $(SRCS:.c=.o)
 

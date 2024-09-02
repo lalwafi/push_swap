@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:11:21 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 19:26:25 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 21:48:38 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ps_lstadd_back(t_ps_list **lst, t_ps_list *new)
 	t_ps_list	*last;
 
 	if (*lst)
-	{	
+	{
 		last = ps_lstlast(*lst);
 		last -> next = new;
 	}
@@ -63,36 +63,4 @@ t_ps_list	*ps_lstlast(t_ps_list *lst)
 		i--;
 	}
 	return (lst);
-}
-
-int	ps_lstsize(t_ps_list *lst)
-{
-	t_ps_list	*current;
-	int			count;
-
-	count = 0;
-	if (!lst)
-		return (0);
-	current = lst;
-	while (current != NULL)
-	{
-		current = current -> next;
-		count++;
-	}
-	return (count);
-}
-
-void	ps_lstprint(t_ps_list *lst)
-{
-	while (lst)
-	{
-		ft_printf("%d) %d\n", lst->index ,lst -> content);
-		lst = lst -> next;
-	}
-}
-
-void	ps_lstadd_front(t_ps_list **lst, t_ps_list *new)
-{
-	new -> next = *lst;
-	*lst = new;
 }

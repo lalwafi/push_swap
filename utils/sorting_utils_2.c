@@ -6,13 +6,13 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 19:53:53 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 19:23:39 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 21:51:15 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rotate_a(t_ps_list **stack_a)
+void	rotate_a(t_ps_list **stack_a)
 {
 	t_ps_list	*temp;
 	t_ps_list	*first;
@@ -28,7 +28,7 @@ void    rotate_a(t_ps_list **stack_a)
 	ft_printf("ra\n");
 }
 
-void    rotate_b(t_ps_list **stack_b)
+void	rotate_b(t_ps_list **stack_b)
 {
 	t_ps_list	*temp;
 	t_ps_list	*first;
@@ -48,7 +48,7 @@ void	reverse_rotate_a(t_ps_list **stack_a)
 {
 	t_ps_list	*temp;
 	t_ps_list	*man;
-	
+
 	if (!stack_a || !(*stack_a))
 		return ;
 	temp = (*stack_a);
@@ -65,7 +65,7 @@ void	reverse_rotate_b(t_ps_list **stack_b)
 {
 	t_ps_list	*temp;
 	t_ps_list	*man;
-	
+
 	if (!stack_b || !(*stack_b))
 		return ;
 	temp = (*stack_b);

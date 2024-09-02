@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 07:28:37 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 18:50:04 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 21:48:15 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 int	handle_overflow(const char *str, int sign)
 {
 	long	n;
-    long    temp;
+	long	temp;
+
 	n = 0;
 	while ((*str >= '0') && (*str <= '9'))
-    {
-        temp = n;
-        n = n * 10 + (*str - '0');
-        if (temp > n)
-            (write(1, "overflow\n", 9), exit(EXIT_FAILURE));
-        str++;
-    }
+	{
+		temp = n;
+		n = n * 10 + (*str - '0');
+		if (temp > n)
+			(write(1, "Error\n", 6), exit(EXIT_FAILURE));
+		str++;
+	}
 	if (n < INT_MIN || n > INT_MAX)
-		(write(1, "overflow\n", 9), exit(EXIT_FAILURE));
+		(write(1, "Error\n", 6), exit(EXIT_FAILURE));
 	return (sign * n);
 }
 
@@ -42,7 +43,7 @@ int	ft_atoi_ps(const char *str)
 	while (*str == 32 || (*str >= 9 && *str <= 13))
 		str++;
 	if ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]) == 0)
-		write(1, "sign without number\n", 21);
+		write(1, "Error\n", 6);
 	if (*str == '-')
 	{
 		sign = -1;

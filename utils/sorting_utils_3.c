@@ -6,13 +6,13 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 04:22:10 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 16:53:15 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 21:51:46 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rotate_b_for_rotate_both(t_ps_list **stack_b)
+void	rotate_b_for_rotate_both(t_ps_list **stack_b)
 {
 	t_ps_list	*temp;
 	t_ps_list	*first;
@@ -27,7 +27,7 @@ void    rotate_b_for_rotate_both(t_ps_list **stack_b)
 	index_that_stack(stack_b);
 }
 
-void    rotate_both(t_ps_list **stack_a, t_ps_list **stack_b)
+void	rotate_both(t_ps_list **stack_a, t_ps_list **stack_b)
 {
 	t_ps_list	*temp;
 	t_ps_list	*first;
@@ -48,11 +48,11 @@ void    rotate_both(t_ps_list **stack_a, t_ps_list **stack_b)
 	ft_printf("rr\n");
 }
 
-void    reverse_rotate_both(t_ps_list **stack_a, t_ps_list **stack_b)
+void	reverse_rotate_both(t_ps_list **stack_a, t_ps_list **stack_b)
 {
 	t_ps_list	*temp;
 	t_ps_list	*man;
-	
+
 	if (stack_a && (*stack_a))
 	{
 		temp = (*stack_a);

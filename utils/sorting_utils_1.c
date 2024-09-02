@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 00:21:29 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/08/31 19:24:50 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/02 21:50:53 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,38 +29,38 @@ int	is_it_sorted(t_ps_list *stack_a)
 	return (0);
 }
 
-void    swap_a(t_ps_list **stack_a)
+void	swap_a(t_ps_list **stack_a)
 {
-	int temp;
+	int	temp;
 
 	if (stack_a)
 	{
 		temp = (*stack_a)->content;
 		(*stack_a)->content = (*stack_a)->next->content;
-		(*stack_a)->next->content = temp; 
+		(*stack_a)->next->content = temp;
 	}
 	index_that_stack(stack_a);
 	ft_printf("sa\n");
 }
 
-void    swap_b(t_ps_list **stack_b)
+void	swap_b(t_ps_list **stack_b)
 {
-	int temp;
+	int	temp;
 
 	if (stack_b)
 	{
 		temp = (*stack_b)->content;
 		(*stack_b)->content = (*stack_b)->next->content;
-		(*stack_b)->next->content = temp; 
+		(*stack_b)->next->content = temp;
 	}
 	index_that_stack(stack_b);
 	ft_printf("sb\n");
 }
 
-void    push_a(t_ps_list **stack_a, t_ps_list **stack_b)
+void	push_a(t_ps_list **stack_a, t_ps_list **stack_b)
 {
-	t_ps_list   *temp;
-	
+	t_ps_list	*temp;
+
 	if (stack_b)
 	{
 		temp = (*stack_b);
@@ -73,10 +73,10 @@ void    push_a(t_ps_list **stack_a, t_ps_list **stack_b)
 	ft_printf("pa\n");
 }
 
-void    push_b(t_ps_list **stack_a, t_ps_list **stack_b)
+void	push_b(t_ps_list **stack_a, t_ps_list **stack_b)
 {
-	t_ps_list   *temp;
-	
+	t_ps_list	*temp;
+
 	if (*stack_a)
 	{
 		temp = (*stack_a);
