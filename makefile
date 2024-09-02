@@ -4,7 +4,8 @@ CFLAGS  = -Wall -Werror -Wextra -fsanitize=address -g3
 
 SRCS    = push_swap.c parsing1.c parsing2.c utils/ft_atoi_ps.c \
 			utils/list_stuff.c utils/sorting_utils_1.c \
-			utils/sorting_utils_2.c lets_try_again.c
+			utils/sorting_utils_2.c utils/sorting_utils_3.c \
+			lets_try_again.c cost.c another_try.c
 
 OBJ     = $(SRCS:.c=.o)
 
