@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 04:11:32 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 21:43:29 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/03 18:07:24 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,17 @@ void	sorting_time(t_ps_list **stack_a, t_ps_list **stack_b)
 	i = ps_lstsize(*stack_a);
 	while (i-- > 0)
 	{
+		ft_printf("---------------------------------------------- i = %d\n", i);
+		ft_printf("-------stack_a-------\n");
+		ps_lstprint(*stack_a);
+		ft_printf("-------stack_b-------\n");
+		ps_lstprint(*stack_b);
 		costcal = lowest_cost_each_target(stack_a, stack_b);
 		target_a = costcal.target_a;
 		target_b = costcal.target_b;
+		ft_printf("----------target_a = %d  index = %d\n", target_a->content, target_a->index);
+		ft_printf("----------target_b = %d  index = %d\n", target_b->content, target_b->index);
+		ft_printf("-------------------cost = %d\n", costcal.cost);
 		sort_it_now_pls_thx(target_a, target_b, stack_a, stack_b);
 	}
 }

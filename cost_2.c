@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:18:31 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 20:33:53 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/03 17:41:39 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ t_ps_list	*find_maximum_cost(t_ps_list **stack, t_ps_list *target)
 
 t_ps_list	*find_closest_minimum_cost(t_ps_list **stack, t_ps_list *target)
 {
-	int			i;
+	long		i;
 	t_ps_list	*temp;
 	t_ps_list	*result;
 
-	i = INT_MAX;
+	i = INT64_MAX;
 	temp = *stack;
 	while (temp)
 	{

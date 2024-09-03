@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:24:07 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 20:27:56 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/03 17:41:27 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ t_cost	lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b)
 	t_cost		costcal;
 	t_ps_list	*temp_a;
 	t_ps_list	*temp_b;
-	int			cost;
+	long		cost;
 
 	costcal.target_a = (*stack_a);
 	costcal.target_b = (*stack_b);
-	costcal.cost = INT_MAX;
+	costcal.cost = INT64_MAX;
 	temp_a = *stack_a;
 	temp_b = *stack_b;
 	while (temp_a)
@@ -41,10 +41,10 @@ t_cost	lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b)
 	return (costcal);
 }
 
-int	lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target)
+long	lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target)
 {
-	int	cost;
-	int	index;
+	long	cost;
+	long	index;
 
 	cost = 0;
 	if (target->index == 0)

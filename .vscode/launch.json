@@ -1,0 +1,18 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug",
+			"program": "${workspaceFolder}/push_swap",
+			"args": [
+				"-1475259118 -39662702 26366063 -309075492 1274239740 503575963 1257439039 549471001 941302046 -1054462003 -115522124 1392601800 1266095145 1593468027 236467806 -1059856376 -870302018 -1621709512 -1461363298 -906176092"
+			],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}

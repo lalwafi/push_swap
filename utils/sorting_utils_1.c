@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 00:21:29 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 21:50:53 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/03 17:47:09 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	is_it_sorted(t_ps_list *stack_a)
 
 void	swap_a(t_ps_list **stack_a)
 {
-	int	temp;
+	long	temp;
 
 	if (stack_a)
 	{
@@ -45,7 +45,7 @@ void	swap_a(t_ps_list **stack_a)
 
 void	swap_b(t_ps_list **stack_b)
 {
-	int	temp;
+	long	temp;
 
 	if (stack_b)
 	{

@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 16:15:22 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 20:43:20 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/03 15:54:16 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,24 @@ int	*char_to_int_array(char **numbers, int count)
 {
 	int	*result;
 	int	i;
+	int	valid;
 
 	i = -1;
+	valid = 1;
 	result = (int *)malloc(sizeof(int) * (count + 1));
 	if (!result)
 	{
 		ft_printf("Error\n");
 		exit(EXIT_FAILURE);
 	}
-	while (numbers[++i])
-		result[i] = ft_atoi_ps(numbers[i]);
+	while (numbers[++i] && valid == 1)
+		result[i] = ft_atoi_ps(numbers[i], &valid);
 	free_double_array(numbers);
+	if (valid == 0)
+	{
+		free(result);
+		exit(EXIT_FAILURE);
+	}
 	return (result);
 }
 

@@ -1,6 +1,6 @@
 NAME    = push_swap
 CC      = cc
-CFLAGS  = -Wall -Werror -Wextra
+CFLAGS  = -Wall -Werror -Wextra -g3 #-fsanitize=address
 
 SRCS    = push_swap.c parsing1.c parsing2.c utils/ft_atoi_ps.c \
 			utils/list_stuff.c utils/sorting_utils_1.c \

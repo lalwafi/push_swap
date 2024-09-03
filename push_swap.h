@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/02 21:42:25 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/03 17:47:49 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
 
 typedef struct s_ps_list
 {
-	int					content;
-	int					index;
-	int					cost;
+	int				content;
+	long				index;
 	struct s_ps_list	*next;
 }	t_ps_list;
 
@@ -31,7 +30,7 @@ typedef struct s_cost
 {
 	t_ps_list	*target_a;
 	t_ps_list	*target_b;
-	int			cost;
+	long			cost;
 }	t_cost;
 
 void		free_double_array(char **array);
@@ -72,7 +71,7 @@ void		if_flag_two(t_ps_list *target_a, t_ps_list *target_b,
 void		if_flag_three(t_ps_list *target_a, t_ps_list *target_b,
 				t_ps_list **stack_a, t_ps_list **stack_b);
 t_ps_list	*where_is_maximum(t_ps_list	**stack_b);
-int			lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target);
+long		lemme_try_sorting_cost(t_ps_list **stack, t_ps_list *target);
 t_cost		lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b);
 t_ps_list	*find_target_b_cost(t_ps_list **stack_b, t_ps_list *target_a);
 int			find_flag_for_target_b_cost(t_ps_list **stack_b,
@@ -81,7 +80,7 @@ t_ps_list	*find_minimum_cost(t_ps_list **stack, t_ps_list *target);
 t_ps_list	*find_maximum_cost(t_ps_list **stack, t_ps_list *target);
 t_ps_list	*find_closest_minimum_cost(t_ps_list **stack, t_ps_list *target);
 int			handle_overflow(const char *str, int sign);
-int			ft_atoi_ps(const char *str);
+int			ft_atoi_ps(const char *str, int *valid);
 t_ps_list	*ps_lstnew(int content);
 void		ps_lstadd_back(t_ps_list **lst, t_ps_list *new);
 void		ps_lstclear(t_ps_list **lst);
