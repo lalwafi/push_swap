@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 03:24:07 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/03 17:41:27 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/04 04:05:40 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_cost	lowest_cost_each_target(t_ps_list **stack_a, t_ps_list **stack_b)
 			costcal.target_a = temp_a;
 			costcal.target_b = temp_b;
 			costcal.cost = cost;
+			if (cost == 1 || cost == 2)
+				break ;
 		}
 		temp_a = temp_a->next;
 	}

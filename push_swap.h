@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:41:18 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/03 17:47:49 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/04 03:56:50 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@
 
 typedef struct s_ps_list
 {
-	int				content;
+	int					content;
 	long				index;
 	struct s_ps_list	*next;
 }	t_ps_list;
 
 typedef struct s_cost
 {
-	t_ps_list	*target_a;
-	t_ps_list	*target_b;
+	t_ps_list		*target_a;
+	t_ps_list		*target_b;
 	long			cost;
 }	t_cost;
 

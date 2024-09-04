@@ -6,7 +6,7 @@
 /*   By: lalwafi <lalwafi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 20:21:17 by lalwafi           #+#    #+#             */
-/*   Updated: 2024/09/03 17:41:39 by lalwafi          ###   ########.fr       */
+/*   Updated: 2024/09/04 03:55:55 by lalwafi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_ps_list	*find_maximum(t_ps_list **stack, t_ps_list *target)
 t_ps_list	*find_closest_minimum(t_ps_list **stack, t_ps_list *target)
 {
 	long		i;
+	long		j;
 	t_ps_list	*temp;
 	t_ps_list	*result;
 
@@ -52,10 +53,11 @@ t_ps_list	*find_closest_minimum(t_ps_list **stack, t_ps_list *target)
 	temp = *stack;
 	while (temp)
 	{
+		j = ((long)target->content - (long)temp->content);
 		if (temp->content < target->content
-			&& i > (target->content - temp->content))
+			&& i > j)
 		{
-			i = target->content - temp->content;
+			i = (long)target->content - (long)temp->content;
 			result = temp;
 		}
 		temp = temp->next;
